@@ -1,0 +1,97 @@
+package com.my.products.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.my.exception.FindException;
+import com.my.products.vo.Products;
+
+public class ProductsDAOOracle implements ProductsDAO {
+
+	@Override
+	public List<Products> selectAll(int startRow, int endRow) throws FindException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		ArrayList<Products> list = new ArrayList<>();
+		try {
+			Class.forName("oracle.jdbc.OracleDriver");
+			String url = "jdbc:oracle:thin@localhost:1521:xe";
+			String user = "system";
+			String password = "chlrmsgud123";
+			
+			conn = DriverManager.getConnection(url, user, password);
+			
+			String selectAllPageSql = "SELECT\r\n"
+					+ "* FROM (\r\n"
+					+ "    SELECT rownum rn, a. * \r\n"
+					+ "    FROM (SELECT * FROM products ORDER BY prod_no) a)\r\n"
+					+ "WHERE rn BETWEEN ? AND ?";
+			
+			pstmt = conn.prepareStatement(selectAllPageSql);
+			pstmt.setInt(1, startRow);
+			pstmt.setInt(2, endRow);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				String prodNo = rs.getString("prod_No");
+				String ProdName = rs.getString("prod_name");
+				int prodPrice = rs.getInt("prod_price");
+				
+				Products p = new Products();
+				p.setProdNo(prodNo);
+				p.setProdName(ProdName);
+				p.setProdPrice(prodPrice);
+				
+				list.add(p);
+				
+				}
+			return list;
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new FindException("JDBC드라이브 로드 실패!");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new FindException(e.getMessage());
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+				}				
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+				}				
+			}
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+				}				
+			}
+	}
+
+	@Override
+	public int totalCnt() throws FindException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Products selectByProdNo(String prodNo) throws FindException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

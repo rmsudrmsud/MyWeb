@@ -1,0 +1,4 @@
+#Tomcat publish data
+#Wed Jan 11 16:19:25 KST 2023
+org.eclipse.jst.jee.server\:test=/opt/homebrew/Cellar/tomcat@9/9.0.69/apache-tomcat-9.0.62/wtpwebapps/test
+org.eclipse.jst.jee.server\:myback=/opt/homebrew/Cellar/tomcat@9/9.0.69/apache-tomcat-9.0.62/wtpwebapps/myback

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="../js/basic.js"></script>
+<script src="../js/upload.js"></script>
+<link rel="stylesheet" href="../css/upload.css">
+</head>
+<body>
+    <!--이미지파일이 선택되자마자 이미지가 보여질 영역-->
+    <div class="show">
+        <img src="">
+    </div>
+    <div class="form">
+        <form method="post" enctype="multipart/form-data" action="http://localhost:8888/myback/upload">
+        <input type="text" name="t"><br/>
+        <input type="file" name="f" multiple accept="image/jpeg, image/png, image/gif"><br/>
+        <input type="checkbox" name="c" checked><br/>
+        <input type="submit" value="전송"><br/>
+        <button>전송1</button><!-- 타입속성이 자동으로 type="submit"으로 설정됨-->
+    </form>
+    </div>
+    <button>일반버튼</button><!--type="button"으로 설정됨-->
+</body>

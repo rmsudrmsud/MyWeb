@@ -1,0 +1,41 @@
+*{
+    box-sizing: border-box;
+}
+div.productlist{
+    width: 80%;
+    height: 400px;
+}
+
+div.product{
+    width: 30%;
+    height: 45%; /*부모요소에 대한 height:100%라는뜻 */
+    border: 1px solid;
+    margin: 10px 4px;
+    /* display: inline-block; 줄바꿈안됨. 크기조절 가능 */
+    float : left;
+    text-align: center; /*블럭요소에서만 쓰이는 중앙정렬 방법*/
+}
+
+div.product>div.img{
+    width: 100%;
+    height: 70%;
+}
+/** 가로넓이만 지정하면 알아서 비율조절, 세로만해도 마찬가지 img는! 기준점하나만 잡고 세팅 */
+div.product>div.img>img{
+    /* max-width:70%; */
+    max-height: 100%;
+}
+div.product>div.prodNo{
+    display:none;
+    /* visibility: hidden; */
+}
+
+div.pagegroup{
+    margin-top : 100px;
+    text-align: center;
+}
+
+div.pagegroup span.current{
+    background-color: gold;
+    font-weight: bold;
+}

@@ -1,0 +1,13 @@
+package com.my.product.service;
+
+import com.my.exception.FindException;
+import com.my.products.dao.ProductsDAO;
+import com.my.products.dao.ProductsDAOOracle;
+import com.my.products.vo.Products;
+
+public class ProductsService {
+	public Products info(String prodNo) throws FindException{
+		ProductsDAO dao = new ProductsDAOOracle();
+		return dao.selectByProdNo(prodNo);
+	}
+}

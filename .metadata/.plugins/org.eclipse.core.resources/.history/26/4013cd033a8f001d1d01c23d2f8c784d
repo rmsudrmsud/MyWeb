@@ -1,0 +1,27 @@
+package com.my.product.service;
+
+import com.my.exception.FindException;
+import com.my.products.dao.ProductsDAO;
+import com.my.products.dao.ProductsDAOOracle;
+import com.my.products.vo.Products;
+
+public class ProductsService {
+	
+	public Products info(String prodNo) throws FindException{
+		ProductsDAO dao = new ProductsDAOOracle();
+		dao.selectByProdNo(prodNo);
+		return dao.selectByProdNo(prodNo);
+	}
+	
+	//테스트용 메서드!
+	public static void main(String[] args) {
+		ProductsDAO dao = new ProductsDAOOracle();
+		try {
+			Products p =  dao.selectByProdNo("C0001");
+			System.out.println(p.toString());
+		} catch (FindException e) {
+			e.printStackTrace();
+		}
+	}
+	
+}
