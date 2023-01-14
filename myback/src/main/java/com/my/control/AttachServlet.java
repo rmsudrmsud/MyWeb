@@ -66,7 +66,8 @@ public class AttachServlet extends HttpServlet {
 					while((readValue = fis.read())!= -1) {//응답 바디에 채울 내용부분 while
 						os.write(readValue);
 					}
-			}//백엔드가 클라이언트에게 응답할땐 정확하게 알려줘야함(몇바이트로 응답할것이고.. 등등) 
+			}//백엔드가 클라이언트에게 응답할땐 정확하게 알려줘야함(몇바이트로 응답할것이고.. 등등)
+			//브랜치테스트
 			
 		}
 		//찾지못한경우
