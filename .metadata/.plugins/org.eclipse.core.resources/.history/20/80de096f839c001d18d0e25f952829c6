@@ -1,0 +1,30 @@
+package com.my.customer.dao;
+
+import java.io.IOException;
+import java.io.InputStream;
+
+import org.apache.ibatis.io.Resources;
+import org.apache.ibatis.session.SqlSessionFactory;
+import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import com.my.customer.vo.Customer;
+import com.my.exception.FindException;
+
+public class CustomerDAOOracle implements CustomerDAO {
+
+	@Override
+	public Customer selectById(String id) throws FindException {
+		String resource = "config.xml";
+		InputStream inputStream;
+		try {
+			inputStream = Resources.getResourceAsStream(resource);
+			SqlSessionFactory sqlSessionFactory =
+					new SqlSessionFactoryBuilder().build(inputStream);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

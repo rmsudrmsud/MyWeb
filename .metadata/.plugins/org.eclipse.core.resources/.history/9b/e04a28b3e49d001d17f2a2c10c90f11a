@@ -1,0 +1,24 @@
+package com.my.order.control;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.my.control.Controller;
+import com.my.order.service.OrderService;
+
+public class AddController implements Controller {
+	private OrderService service;
+	public AddController() {
+		service = new OrderService();
+	}
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		
+		return null;
+	}
+
+}

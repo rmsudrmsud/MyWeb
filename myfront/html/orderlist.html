@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="../js/basic.js"></script>
+        <script src="../js/orderlist.js"></script>
+    </head>
+    <body>
+        <div class="orderlist">
+            <table border="1">
+                <thead><!--이 영역은 테이블헤더라는 그냥 의미뿐인태그-->
+                    <!--자바스크립트에서 thead, tbody, tfoot 시멘틱태그를 주어서 찾는게 더 좋은방법-->
+                    <tr>
+                    <!--th 테이블헤더 : 정중앙 굵은글씨-->
+                    <th>주문번호</th><th>주문일자</th><th>상품번호</th><th>상품명</th><th>가격</th><th>주문수량</th>
+                    </tr>
+                </thead>
+                <tbody><!--td 테이블데이터-->
+                    <tr>
+                    <td class="orderNo">주문번호값</td>
+                    <td class="orderDt">주문일자</td>
+                    <td class="lines">
+                    </td>
+                    <td class="prodNo">상품번호</td>
+                    <td class="prodName">상품명</td>
+                    <td class="prodPrice">가격</td>
+                    <td class="orderQuantity">주문수량</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+package com.my.order.service;
+
+import com.my.exception.AddException;
+import com.my.order.dao.OrderDAO;
+import com.my.order.dao.OrderDAOOracle;
+import com.my.order.vo.OrderInfo;
+
+public class OrderService {
+	private OrderDAO dao;
+	public OrderService() {
+		dao = new OrderDAOOracle();
+	}
+	public void add(OrderInfo ordrinfo) throws AddException{
+		dao.insert(orderinfo);
+	}
+}

@@ -1,0 +1,5 @@
+package com.my.order.dao;
+
+public interface OrderDAO {
+
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.my.order.OrderMapper">
+	<insert id="insertInfo" parameterType="OrderInfo">
+		<selectKey keyProperty="orderNo" resultType="int"
+			order="AFTER">
+			select order_seq.CURRVAL FROM dual
+		</selectKey>
+		INSERT INTO order_info(order_no, order_id, order_dt)
+		values(order_seq.NEXTVAL, #{orderId}, SYSDATE)
+	</insert>
+
+	<insert id="insertLine" parameterType="OrderLine">
+		INSERT INTO order_line(order_no, order_prod_no, order_quantity) values
+		(#{orderNo}, #{orderP.prodNo}, #{orderQuantity})
+	</insert>
+	
+	
+	<select id="selectByOrderId" parameterType="string" resultType="OrderInfo">
+	SELECT order_no, order_dt, order_prod_no, prod_name, prod_price, order_quantity
+	FROM order_info info
+	NATURAL JOIN order_line line
+	JOIN product p on (line.order_prod_no = p.prod_no)
+	where order_id = #{orderId}
+	order by order_no desc
+	
+	</select>
+</mapper>

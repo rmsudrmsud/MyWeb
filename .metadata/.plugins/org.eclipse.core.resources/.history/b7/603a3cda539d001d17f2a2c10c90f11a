@@ -1,0 +1,5 @@
+package com.my.order.vo;
+
+public class OrderInfo {
+
+}

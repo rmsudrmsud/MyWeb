@@ -1,0 +1,23 @@
+package com.my.cart.control;
+
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.my.control.Controller;
+
+public class ListController implements Controller {
+
+	@Override
+	public String execute(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
+		
+		response.setContentType("application/json; charset=utf-8");
+		response.addHeader("Access-Control-Allow-Origin", "http://192.168.0.21:5500");
+		response.addHeader("Access-Control-Allow-Credentials", "true");//쿠키 허용
+		return null;
+	}
+
+}

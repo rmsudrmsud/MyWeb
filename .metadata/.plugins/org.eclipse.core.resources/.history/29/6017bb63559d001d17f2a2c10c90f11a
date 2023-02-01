@@ -1,0 +1,10 @@
+package com.my.order.dao;
+
+import com.my.exception.AddException;
+import com.my.order.vo.OrderInfo;
+
+public interface OrderDAO {
+	void insert(OrderInfo orderInfo) throws AddException;
+}
+
+
