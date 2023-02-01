@@ -9,9 +9,12 @@ import lombok.Getter;
 
 //타입 제네릭 T. product가 T에대입.
 public class PageBean<T> {
+	//한페이지에 보여줄 최대목록수 3개상품을 보여줌
 	public final static int CNT_PER_PAGE=3; //값을 바꿀수없게 상수선언 final static 자바에서상수선언 보통대문자
+	//페이지 그룹수? // <이전> [1], [2] <다음> 2개!
 	public final static int CNT_PER_PAGE_GROUP=2;
 	private List<T> list;
+	//totalCnt : 총 게시물 개수
 	private int totalCnt;
 	private int totalPage;
 	private int startPage;

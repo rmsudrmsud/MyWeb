@@ -173,7 +173,10 @@ $(()=>{ //화면랜더링 직전에 실행
                 $pageGroup.html(pageGroupStr)
             },
             error: function(xhr){
-                alert(xhr.status)
+                //alert(xhr.status)
+                //응답을 가져오고 json객체로 파싱..
+               let jsonObj = JSON.parse(xhr.responseText);
+                alert(jsonObj.msg)
             }
         })
     }
@@ -182,7 +185,7 @@ $(()=>{ //화면랜더링 직전에 실행
 
 
 
-    let url = backURL + '/product/list'
+    let url = backURL + 'product/list'
 
     //--상품목록 요청START--
     //1페이지부터 보여줘야하니까 
