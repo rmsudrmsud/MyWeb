@@ -1,5 +1,5 @@
-let backURL='http://192.168.0.33:8888/myback/'
-let frontURL='http://192.168.0.33:5500/html/'
+let backURL='http://192.168.0.18:8888/myback/'
+let frontURL='http://192.168.0.18:5500/html/'
 
 
     //--로그인상태의 메뉴들 보여주기 함수 START--

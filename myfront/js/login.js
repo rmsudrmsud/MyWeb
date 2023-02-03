@@ -34,7 +34,7 @@ $(()=>{
                 },
                 error : function(xhr){
                     //xhr : 제이쿼리 html request..?
-                    
+
                     alert(xhr.responseText)
                 }
             })

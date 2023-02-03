@@ -1,7 +1,0 @@
-package com.my.order.dao;
-
-public interface OrderDAO {
-	void insert(OrderInfo orderInfo) throws AddException;
-}
-
-

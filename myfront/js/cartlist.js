@@ -46,7 +46,7 @@ $(()=>{
                 //     alert('주문실패 :' +jsonObj.msg)
                 // }
             },error:function(xhr){
-                alert('주문실패:'+xhr.responseText)
+                alert(xhr.status + ":"+'주문실패:'+xhr.responseText)
             }
         })
     }

@@ -1,2 +1,0 @@
-login=com.my.customer.control.LoginController
-checklogined=com.my.customer.control.CheckLoginedController
